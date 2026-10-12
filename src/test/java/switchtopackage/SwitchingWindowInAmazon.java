@@ -32,7 +32,7 @@ public class SwitchingWindowInAmazon
 
             Thread.sleep(4000);
 
-            driver.findElement(By.xpath("//h2[contains(@aria-label,'Star Wars Millennium Falcon Set ')]"))
+            driver.findElement(By.xpath("//h2[contains(@aria-label,'Sponsored Ad - LEGO Technic Ducati Panigale')]"))
                     .click();
 
             Thread.sleep(2000);
@@ -51,8 +51,15 @@ public class SwitchingWindowInAmazon
                 }
             }
 
-            driver.findElement(By.xpath("//a[text()=' See All Buying Options ']"))
+            driver.findElement(By.xpath("//input[@id='add-to-cart-button']"))
                     .click();
+
+            Thread.sleep(4000);
+
+//            driver.close();
+
+            driver.quit();
+
         }
         catch (Exception e)
         {
