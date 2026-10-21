@@ -32,19 +32,19 @@ public class UsingFluentWait
             wait.ignoring(Exception.class);
 
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='firstName']")))
-                    .sendKeys("Firstname");
+                    .sendKeys("FirstName");
 
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='lastName']")))
-                    .sendKeys("Lastname");
+                    .sendKeys("LastName");
 
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='userEmail']")))
-                    .sendKeys("demomail@gmail.com");
+                    .sendKeys("dummyMail@gmail.com");
 
-            List<WebElement> allGenders = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='genterWrapper']/descendant::label")));
+            List<WebElement> allGender = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='genterWrapper']/descendant::label")));
 
-            for(WebElement gender : allGenders)
+            for(WebElement gender :allGender)
             {
-                if (gender.getText().equals("Female"))
+                if (gender.getText().equals("Other"))
                 {
                     gender.click();
                     break;
@@ -54,14 +54,36 @@ public class UsingFluentWait
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='userNumber']")))
                     .sendKeys("9988776655");
 
+           WebElement calendar =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='dateOfBirthInput']")));
+
+           calendar.clear();
+
+//           calendar.sendKeys("15 Aug 1947");
+
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='subjectsInput']")))
-                    .sendKeys("Computer Science");
+                    .sendKeys("English");
+
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@role='option']")))
+                    .click();
+
+            List<WebElement> allHobbies= wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='hobbiesWrapper']/descendant::div[starts-with(@class,'col-md-9')]/descendant::label")));
+
+            for(WebElement hobby : allHobbies)
+            {
+                if (hobby.getText().equals("Reading"))
+                {
+                    hobby.click();
+
+                    break;
+                }
+            }
 
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//textarea[@id='currentAddress']")))
                     .sendKeys("Hyderabad");
 
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Submit']")))
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='submit']")))
                     .click();
+
         }
         catch (Exception e)
         {
