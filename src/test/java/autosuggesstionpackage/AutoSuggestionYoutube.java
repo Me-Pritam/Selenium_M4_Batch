@@ -31,7 +31,7 @@ public class AutoSuggestionYoutube
 
            WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 
-           List<WebElement> allSuggestion = wait.until(ExpectedConditions.visibilityOfAllElements(driver.findElements(By.xpath("//div[@role='listbox']/descendant::div[@class='ytSuggestionComponentLeftContainer']/child::span"))));
+           List<WebElement> allSuggestion = wait.until(ExpectedConditions.visibilityOfAllElements(driver.findElements(By.xpath("//div[@role='listbox']/descendant::div[@class='ytSuggestionComponentLeftContainer']/child::span")))); 
 
            for(WebElement suggestion : allSuggestion)
            {
