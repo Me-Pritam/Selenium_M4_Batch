@@ -36,6 +36,21 @@ public class UsingClickAndHold
 
          action.click(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@id='loginOfmenu']"))))
                  .perform();
+
+         boolean isStale = wait.until(ExpectedConditions.stalenessOf(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='password']")))));
+
+         if (isStale)
+         {
+             action.sendKeys(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='password']")))
+                            ,"Password@1234")
+                     .perform();
+
+             action.pause(Duration.ofSeconds(2))
+                     .clickAndHold(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@src='assets/img/Revamp/icon_eye_close.svg']"))))
+                     .pause(Duration.ofSeconds(2))
+                     .release()
+                     .perform();
+         }
       }
       catch (Exception e)
       {
