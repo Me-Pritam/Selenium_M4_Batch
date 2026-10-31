@@ -32,11 +32,15 @@ public class DemoQATask
                     .keyDown(Keys.CONTROL)
                     .sendKeys("A")
                     .keyUp(Keys.CONTROL)
-                    .pause(Duration.ofSeconds(1))
+//                    .pause(Duration.ofSeconds(1))
                     .keyDown(Keys.CONTROL)
-                    .keyUp("X")
+                    .keyUp("C")
                     .keyUp(Keys.CONTROL)
-                    .sendKeys(Keys.TAB)
+                    .perform();
+
+            actions.pause(Duration.ofSeconds(2))
+                    .click(driver.findElement(By.xpath("//input[@id='lastName']")))
+                    .pause(Duration.ofSeconds(2))
                     .keyDown(Keys.CONTROL)
                     .sendKeys("V")
                     .keyUp(Keys.CONTROL)
