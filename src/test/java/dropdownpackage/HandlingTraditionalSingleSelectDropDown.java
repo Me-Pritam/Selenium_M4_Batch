@@ -36,6 +36,11 @@ public class HandlingTraditionalSingleSelectDropDown
           Select selectNationality = new Select(driver.findElement(By.xpath("//select[@name='nationality']")));
 
           selectNationality.selectByVisibleText("Indian");
+
+          Thread.sleep(2000);
+
+//          selectNationality.deselectByVisibleText("Indian");
+          selectNationality.deselectAll();
       }
       catch (Exception e)
       {
