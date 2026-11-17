@@ -24,13 +24,13 @@ public class CapturingElementScreenshot
 
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 
-            driver.get("https://www.incredibleindia.gov.in/en");
+            driver.get("https://tgsrtc.telangana.gov.in/");
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(25));
 
             WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 
-            File tempElementFile = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//div[@class='inc-logo']/a[@href='https://www.incredibleindia.gov.in/en']"))))
+            File tempElementFile = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//img[@src='tsrtc-logo-compressed-image@5x.webp']"))))
                                         .getScreenshotAs(OutputType.FILE);
 
             File srcElementFile = new File("./ScreenshotFolder/FirstElementSS.png");
